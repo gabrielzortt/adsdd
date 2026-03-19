@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Dom Corleone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CORES E FONTES ===== */
+        :root {
+            --dourado: #C5A059;
+            --fundo: #050505;
+            --cinza-escuro: #111111;
+            --texto: #E0E0E0;
+            --fonte-titulo: 'Cinzel', serif;
+            --fonte-texto: 'Lato', sans-serif;
+        }
+
+        /* ===== RESET GERAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--fundo);
+            color: var(--texto);
+            font-family: var(--fonte-texto);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--fonte-titulo);
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== CABEÇALHO ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            z-index: 100;
+        }
+
+        header h2 {
+            font-size: 24px;
+            letter-spacing: 4px;
+        }
+
+        /* ===== FACHADA (HERO) ===== */
+        .hero {
+            height: 100vh;
+            /* AQUI ESTÁ A FOTO DA SUA FACHADA EXATAMENTE COMO VOCÊ ENVIOU */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('1000184169.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .btn-agendar {
+            display: inline-block;
+            border: 2px solid var(--dourado);
+            color: var(--dourado);
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-family: var(--fonte-titulo);
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-agendar:hover {
+            background-color: var(--dourado);
+            color: var(--fundo);
+        }
+
+        /* ===== SEÇÕES GERAIS ===== */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .titulo-secao {
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        /* ===== SERVIÇOS (FOTOS ALINHADAS SEMPRE) ===== */
+        .grid-servicos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--cinza-escuro);
+            border: 1px solid #222;
+            width: 100%;
+            max-width: 350px;
+            border-bottom: 3px solid var(--dourado);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* ISSO IMPEDE A FOTO DE BAGUNÇAR */
+        }
+
+        .card-texto {
+            padding: 25px;
+        }
+
+        .card-texto h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* ===== PROMOÇÃO (DINÂMICA) ===== */
+        .promocao {
+            background-color: var(--cinza-escuro);
+            border: 1px solid var(--dourado);
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .promocao h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .preco-antigo {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 20px;
+        }
+
+        .preco-novo {
+            font-size: 45px;
+            color: #fff;
+            display: block;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tempo {
+            background: #000;
+            padding: 15px;
+            border: 1px solid #333;
+            min-width: 80px;
+        }
+
+        .tempo span {
+            display: block;
+            font-size: 30px;
+            color: var(--dourado);
+            font-weight: bold;
+        }
+
+        .tempo small {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* Estilo para quando for Quarta-feira */
+        .promocao-ativa {
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.2) 0%, #111 70%);
+            border-color: #fff;
+        }
+
+        .promocao-ativa .preco-novo {
+            color: var(--dourado);
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background-color: #000;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Dom Corleone</h2>
+    </header>
+
+    <section class="hero">
+        <h1>O Respeito Exige Estilo</h1>
+        <p>A experiência definitiva em barbearia clássica. Onde homens de honra cuidam da sua imagem com excelência.</p>
+        <a href="#agendar" class="btn-agendar">Agendar Agora</a>
+    </section>
+
+    <section id="servicos">
+        <h2 class="titulo-secao">Nossos Serviços</h2>
+        <div class="grid-servicos">
+            
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600&auto=format&fit=crop" alt="Corte Supremo">
+                <div class="card-texto">
+                    <h3>Corte Supremo</h3>
+                    <p>Corte impecável finalizado na navalha e pomada premium.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" alt="Barba de Respeito">
+                <div class="card-texto">
+                    <h3>Barba de Respeito</h3>
+                    <p>Toalha quente, alinhamento milimétrico e óleos essenciais.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=600&auto=format&fit=crop" alt="Ambiente">
+                <div class="card-texto">
+                    <h3>O Ambiente</h3>
+                    <p>Som ambiente, cadeiras de luxo e cerveja gelada esperando por você.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="oferta">
+        <div class="promocao" id="caixa-promocao">
+            <h3 id="titulo-promocao">A Oferta do Chefe</h3>
+            
+            <div class="contador" id="area-contador">
+                <div class="tempo"><span id="dias">00</span><small>Dias</small></div>
+                <div class="tempo"><span id="horas">00</span><small>Horas</small></div>
+                <div class="tempo"><span id="minutos">00</span><small>Min</small></div>
+            </div>
+
+            <p id="texto-promocao">Toda Quarta-feira, membros da família pagam menos.</p>
+            <span class="preco-antigo">De R$ 45,00</span>
+            <span class="preco-novo">Por R$ 30,00</span>
+            <br>
+            <a href="#agendar" class="btn-agendar">Garantir Desconto</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 BARBEARIA DOM CORLEONE. TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+    <script>
+        function ativarPromocao() {
+            const dataAtual = new Date();
+            const diaSemana = dataAtual.getDay(); // 0 = Domingo, 3 = Quarta-feira
+
+            const caixaPromo = document.getElementById('caixa-promocao');
+            const tituloPromo = document.getElementById('titulo-promocao');
+            const textoPromo = document.getElementById('texto-promocao');
+            const areaContador = document.getElementById('area-contador');
+
+            if (diaSemana === 3) {
+                // SE HOJE FOR QUARTA-FEIRA (O QUE VAI ACONTECER HOJE)
+                caixaPromo.classList.add('promocao-ativa');
+                tituloPromo.innerText = "🔥 OFERTA ATIVA HOJE! 🔥";
+                textoPromo.innerText = "Aproveite! O desconto do Chefe está liberado agora.";
+                areaContador.style.display = "none"; // Esconde os dias e horas
+            } else {
+                // SE FOR OUTRO DIA DA SEMANA
+                caixaPromo.classList.remove('promocao-ativa');
+                tituloPromo.innerText = "TEMPO PARA A OFERTA DO CHEFE";
+                textoPromo.innerText = "Toda Quarta-feira, o preço cai.";
+                areaContador.style.display = "flex"; // Mostra os dias e horas
+
+                // Calcula quanto tempo falta para a próxima quarta-feira
+                let diasFaltando = (3 - diaSemana + 7) % 7;
+                if (diasFaltando === 0) diasFaltando = 7;
+                
+                let proximaQuarta = new Date(dataAtual);
+                proximaQuarta.setDate(dataAtual.getDate() + diasFaltando);
+                proximaQuarta.setHours(0, 0, 0, 0);
+
+                function atualizarRelogio() {
+                    let agora = new Date().getTime();
+                    let distancia = proximaQuarta.getTime() - agora;
+
+                    let dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                    let horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    let minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+
+                    document.getElementById("dias").innerText = dias.toString().padStart(2, '0');
+                    document.getElementById("horas").innerText = horas.toString().padStart(2, '0');
+                    document.getElementById("minutos").innerText = minutos.toString().padStart(2, '0');
+                }
+
+                atualizarRelogio();
+                setInterval(atualizarRelogio, 60000); // Atualiza a cada 1 minuto
+            }
+        }
+
+        // Roda o script assim que a página carrega
+        window.onload = ativarPromocao;
+    </script>
+</body>
+  </html>
+  
