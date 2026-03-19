@@ -4,354 +4,344 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbearia Dom Corleone</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Reset e Variáveis */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        :root {
+            --dark-bg: #111111;
+            --darker-bg: #0a0a0a;
+            --gold: #D4AF37;
+            --text-light: #f4f4f4;
+            --text-gray: #aaaaaa;
+        }
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            overflow-x: hidden;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
         }
-
         h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
         }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        section {
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            backdrop-filter: blur(10px);
-            background: rgba(0,0,0,0.6);
-            z-index: 999;
-            padding: 15px 20px;
-            border-bottom: 1px solid rgba(197,160,89,0.3);
-        }
-
-        header h1 {
-            color: #C5A059;
-            font-size: 20px;
-        }
-
-        /* HERO */
-        .hero {
-            height: 100vh;
-            position: relative;
-        }
-
-        .hero img {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-        }
-
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.75);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            height: 100%;
+        /* 1. SEÇÃO HERO (PARALLAX) */
+        .hero-parallax {
+            /* Substitua a URL abaixo pela foto da faixada da sua barbearia */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            min-height: 100vh;
+            background-attachment: fixed; /* O segredo do efeito Parallax */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 0 20px;
+        }
+        .hero-parallax h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .catchphrase {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
 
-        .hero h2 {
-            font-size: 32px;
+        /* Estilos Comuns de Seção */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        /* 2. SERVIÇOS */
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background-color: var(--darker-bg);
+            border: 1px solid #333;
+            padding: 40px 20px;
+            border-radius: 10px;
+            width: 250px;
+            transition: border-color 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: var(--gold);
+        }
+        .service-card i {
+            font-size: 3rem;
+            color: var(--gold);
             margin-bottom: 20px;
         }
-
-        .btn {
-            background: #C5A059;
-            color: #000;
-            padding: 12px 24px;
-            border: none;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
 
-        .btn:hover {
-            opacity: 0.8;
+        /* 3. EQUIPE */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            width: 300px;
+        }
+        /* Substitua pelas fotos reais dos barbeiros */
+        .team-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #333;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+        .team-member:hover .team-img {
+            border-color: var(--gold);
+        }
+        .team-member h3 {
+            font-size: 1.8rem;
+        }
+        .team-member p {
+            color: var(--text-gray);
         }
 
-        /* GRID */
-        .grid {
-            display: grid;
-            gap: 20px;
+        /* 4. AMBIENTE */
+        .environment {
+            background-color: var(--darker-bg);
         }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        .card {
-            background: #111;
-            border: 1px solid rgba(197,160,89,0.3);
+        .env-gallery {
+            max-width: 1000px;
+            margin: 0 auto;
             border-radius: 10px;
             overflow: hidden;
+            border: 2px solid var(--gold);
+        }
+        /* Substitua pela foto do ambiente interno */
+        .env-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
         }
 
-        .card-img {
-            aspect-ratio: 4/3;
+        /* 5. PAINEL DE PROMOÇÃO FUNCIONAL */
+        .promo-section {
+            background: linear-gradient(45deg, #1a1a1a, #000000);
+            padding: 60px 20px;
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
         }
-
-        .card-body {
-            padding: 15px;
+        .promo-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 2px dashed var(--gold);
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
         }
-
-        /* TEAM */
-        .team img {
-            aspect-ratio: 1/1;
-            border-radius: 50%;
+        .promo-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #fff;
         }
-
-        /* GALLERY */
-        .gallery img {
-            aspect-ratio: 1/1;
-            border-radius: 10px;
+        .promo-price {
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin: 20px 0;
         }
-
-        /* PROMO */
-        .promo {
-            text-align: center;
-            border: 2px solid #C5A059;
-            border-radius: 10px;
-        }
-
-        .promo.active {
-            background: #1a2a1a;
-            border-color: #00ff88;
-        }
-
-        .price {
-            font-size: 28px;
-            margin: 10px 0;
-        }
-
-        .old {
+        .old-price {
             text-decoration: line-through;
-            opacity: 0.5;
+            color: var(--text-gray);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        .promo-status {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .is-today {
+            background-color: var(--gold);
+            color: #000;
+            animation: pulse 2s infinite;
         }
 
-        /* FOOTER */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Rodapé */
         footer {
             text-align: center;
-            padding: 20px;
-            background: #000;
-            border-top: 1px solid rgba(197,160,89,0.3);
+            padding: 30px;
+            background-color: var(--darker-bg);
+            color: var(--text-gray);
         }
 
-        /* ANIMATION */
-        .fade {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.6s;
-        }
-
-        .fade.show {
-            opacity: 1;
-            transform: translateY(0);
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-parallax h1 { font-size: 2.5rem; }
+            .env-img { height: 300px; }
+            .promo-price { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Dom Corleone</h1>
-</header>
+    <section class="hero-parallax">
+        <h1>Dom Corleone</h1>
+        <p class="catchphrase">"A excelência que você merece, o respeito que você conquista."</p>
+        <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20um%20horário!" target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Agendar meu Horário
+        </a>
+    </section>
 
-<section class="hero">
-    <img src="1000184169.png" alt="">
-    <div class="overlay"></div>
-
-    <div class="hero-content">
-        <h2>Elegância. Respeito. Poder.</h2>
-        <a href="https://wa.me/" class="btn">Agendar Agora</a>
-    </div>
-</section>
-
-<section class="fade">
-    <div class="container">
-        <h2 style="text-align:center;margin-bottom:30px;">Serviços</h2>
-
-        <div class="grid grid-3">
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" alt="">
-                </div>
-                <div class="card-body">
-                    <h3>Corte Supremo</h3>
-                </div>
+    <section class="section">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Corte</h3>
+                <p>Cortes clássicos e modernos, executados com precisão mafiosa.</p>
             </div>
-
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" alt="">
-                </div>
-                <div class="card-body">
-                    <h3>Barba de Respeito</h3>
-                </div>
+            <div class="service-card">
+                <i class="fas fa-magic"></i>
+                <h3>Barba</h3>
+                <p>Barboterapia com toalha quente, navalha e produtos premium.</p>
             </div>
-
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="">
-                </div>
-                <div class="card-body">
-                    <h3>O Capo</h3>
-                </div>
+            <div class="service-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Combo Don</h3>
+                <p>O pacote completo: Corte + Barba + Lavagem especial.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-crown"></i>
+                <h3>Planos</h3>
+                <p>Clube de assinaturas Corleone. Esteja sempre alinhado.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="fade team">
-    <div class="container">
-        <h2 style="text-align:center;margin-bottom:30px;">A Família</h2>
-
-        <div class="grid grid-3">
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg">
-                </div>
-                <div class="card-body">
-                    <h3>Vito</h3>
-                    <p>Mestre Clássico</p>
-                </div>
+    <section class="section" style="background-color: var(--darker-bg);">
+        <h2 class="section-title">A Família (Equipe)</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto do Rabicó" class="team-img">
+                <h3>Rabicó</h3>
+                <p>Mestre das Tesouras - 10 anos de experiência</p>
             </div>
-
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg">
-                </div>
-                <div class="card-body">
-                    <h3>Michael</h3>
-                    <p>Especialista Moderno</p>
-                </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto do Brendo" class="team-img">
+                <h3>Brendo</h3>
+                <p>Especialista em Degradê e Barboterapia</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="fade gallery">
-    <div class="container">
-        <h2 style="text-align:center;margin-bottom:30px;">O Território</h2>
-
-        <div class="grid grid-3">
-            <img src="https://images.unsplash.com/photo-1622288432450-277d0fef5ed6">
-            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1">
-            <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b">
+    <section class="section environment">
+        <h2 class="section-title">Nosso Território</h2>
+        <p style="margin-bottom: 30px; color: var(--text-gray);">Um ambiente climatizado, cerveja gelada, sinuca e muito estilo.</p>
+        <div class="env-gallery">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ambiente da Barbearia" class="env-img">
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="fade">
-    <div class="container promo" id="promoBox">
-        <h2 id="promoTitle">Oferta do Chefe</h2>
-        <p class="price">
-            <span class="old">R$45,00</span> 
-            <strong id="promoPrice"></strong>
-        </p>
-        <p id="countdown"></p>
-    </div>
-</section>
+    <section class="promo-section">
+        <div class="promo-panel">
+            <h2 class="promo-title">A Oferta Irrecusável de Quarta-Feira</h2>
+            <p>Toda quarta-feira, a "Família" garante o seu alinhamento com um preço especial.</p>
+            <div class="promo-price">
+                <span class="old-price">R$ 45,00</span>
+                R$ 30,00
+            </div>
+            <p>Corte Simples</p>
+            <div id="promo-status" class="promo-status">Verificando o dia...</div>
+            
+            <br><br>
+            <a href="https://wa.me/5511999999999?text=Quero%20aproveitar%20a%20promoção%20de%20quarta!" target="_blank" class="btn-whatsapp" style="font-size: 1rem; padding: 10px 20px;">
+                <i class="fab fa-whatsapp"></i> Reservar Promoção
+            </a>
+        </div>
+    </section>
 
-<footer>
-    <p>© 2026 Dom Corleone - Todos os direitos reservados</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Barbearia Dom Corleone. Todos os direitos reservados.</p>
+    </footer>
 
-<script>
-    // FADE IN
-    const elements = document.querySelectorAll('.fade');
+    <script>
+        // Função para verificar se hoje é quarta-feira e atualizar o painel
+        function checkPromoDay() {
+            const today = new Date();
+            const dayOfWeek = today.getDay(); // 0 = Domingo, 1 = Segunda ... 3 = Quarta
+            const statusElement = document.getElementById('promo-status');
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add('show');
+            if (dayOfWeek === 3) {
+                statusElement.textContent = "É HOJE! Promoção Ativa!";
+                statusElement.classList.add('is-today');
+            } else {
+                // Descobrir quantos dias faltam para quarta
+                let daysLeft = (3 - dayOfWeek + 7) % 7;
+                statusElement.textContent = `Faltam ${daysLeft} dia(s) para a promoção.`;
+                statusElement.classList.remove('is-today');
             }
-        });
-    });
-
-    elements.forEach(el => observer.observe(el));
-
-    // PROMOÇÃO
-    const today = new Date();
-    const day = today.getDay();
-
-    const promoBox = document.getElementById('promoBox');
-    const title = document.getElementById('promoTitle');
-    const price = document.getElementById('promoPrice');
-    const countdown = document.getElementById('countdown');
-
-    if(day === 3){ // Quarta
-        promoBox.classList.add('active');
-        title.innerText = "🔥 OFERTA ATIVA HOJE! 🔥";
-        price.innerText = "R$30,00";
-        countdown.style.display = "none";
-    } else {
-        price.innerText = "R$45,00";
-
-        function updateCountdown(){
-            const now = new Date();
-            let nextWednesday = new Date();
-
-            nextWednesday.setDate(now.getDate() + ((3 + 7 - now.getDay()) % 7));
-            nextWednesday.setHours(0,0,0,0);
-
-            if(nextWednesday <= now){
-                nextWednesday.setDate(nextWednesday.getDate() + 7);
-            }
-
-            const diff = nextWednesday - now;
-
-            const days = Math.floor(diff / (1000*60*60*24));
-            const hours = Math.floor((diff / (1000*60*60)) % 24);
-            const minutes = Math.floor((diff / (1000*60)) % 60);
-
-            countdown.innerText = `Falta ${days}d ${hours}h ${minutes}m para a próxima oferta`;
         }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    }
-</script>
-
+        // Executar assim que a página carregar
+        checkPromoDay();
+    </script>
 </body>
-    </html>
+</html>
