@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbearia Dom Corleone - Tradição e Estilo</title>
+    <title>Barbearia Dom Corleone - Tradição e Estilo Absoluto</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -13,13 +13,13 @@
             --gold-light: #F1D4A2;
             --black: #000000;
             --dark-gray: #0A0A0A;
-            --mid-gray: #222222;
+            --mid-gray: #151515;
             --light-gray: #B0B0B0;
             --white: #FFFFFF;
             --font-title: 'Cinzel', serif;
             --font-title-dec: 'Cinzel Decorative', serif;
             --font-main: 'Lato', sans-serif;
-            --transition-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-smooth: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         /* RESET E DEFINIÇÕES GERAIS */
@@ -35,6 +35,7 @@
             background-color: var(--black);
             color: var(--light-gray);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         h1, h2, h3, h4 {
@@ -47,7 +48,6 @@
 
         p {
             font-size: 16px;
-            line-height: 1.8;
             font-weight: 300;
         }
 
@@ -59,7 +59,7 @@
         /* ANIMAÇÃO DE APARECIMENTO (REVELATION EFFECT) */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: var(--transition-smooth);
         }
         
@@ -76,28 +76,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 5%;
+            padding: 20px 5%;
             z-index: 1000;
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
         }
 
         .logo {
             font-family: var(--font-title-dec);
-            font-size: 30px;
+            font-size: 28px;
             color: var(--gold);
             letter-spacing: 3px;
         }
 
         nav ul {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
         }
 
         nav a {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: var(--transition-smooth);
@@ -107,11 +107,11 @@
             color: var(--gold);
         }
 
-        /* HERO COM PARALLAX E FUMAÇA */
-        .parallax-hero {
+        /* SEÇÃO HERO: FUNDO COM FOTO DA FACHADA (DEMONSTRANDO A LOJA) */
+        .hero-section {
             height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1521590832167-7bfc17484d20?q=80&w=1920&auto=format&fit=crop'); /* Fachada */
-            background-attachment: fixed;
+            /* Usando a imagem fictícia da fachada real gerada para demonstrar a loja */
+            background-image: url('image_0.png'); 
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -120,30 +120,15 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            /* Não é Parallax, a imagem rola com o conteúdo */
         }
 
+        /* Overlay para dar leitura no texto por cima da fachada */
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,1));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,1));
             z-index: 1;
-        }
-
-        /* FUMAÇA DINÂMICA (Animação de Charuto) */
-        .hero-overlay::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: url('https://www.transparenttextures.com/patterns/black-linen.png');
-            opacity: 0.1;
-            filter: blur(2px);
-            animation: smokeMove 30s linear infinite;
-        }
-
-        @keyframes smokeMove {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(-10%, -10%); }
-            100% { transform: translate(0, 0); }
         }
 
         .hero-content {
@@ -154,19 +139,23 @@
         }
 
         .hero-content h1 {
-            font-size: 6vw;
+            font-size: 5.5vw;
             color: var(--gold);
             font-family: var(--font-title-dec);
-            text-shadow: 2px 2px 20px rgba(197, 160, 89, 0.5);
-            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(197, 160, 89, 0.4);
+            margin-bottom: 15px;
+            line-height: 1.1;
         }
 
         .hero-content p {
             color: var(--white);
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 300;
-            margin-bottom: 50px;
+            margin-bottom: 45px;
             letter-spacing: 1px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn-premium {
@@ -174,10 +163,10 @@
             background: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
-            padding: 18px 50px;
+            padding: 16px 45px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             transition: var(--transition-smooth);
             cursor: pointer;
@@ -186,21 +175,21 @@
         .btn-premium:hover {
             background: var(--gold);
             color: var(--black);
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.3);
         }
 
         /* SEÇÕES GERAIS */
         section {
-            padding: 120px 5%;
+            padding: 100px 5%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 70px;
         }
 
         .section-title h2 {
-            font-size: 40px;
+            font-size: 38px;
             color: var(--gold);
             margin-bottom: 15px;
         }
@@ -208,64 +197,64 @@
         .section-title p {
             max-width: 600px;
             margin: 0 auto;
+            color: var(--light-gray);
         }
 
-        /* GRID DE SERVIÇOS */
+        /* GRID DE SERVIÇOS (FOTOS ALINHADAS) */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 30px;
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .service-card {
-            background: var(--dark-gray);
+            background: var(--mid-gray);
             border: 1px solid rgba(255,255,255,0.03);
-            position: relative;
-            overflow: hidden;
             transition: var(--transition-smooth);
+            overflow: hidden;
         }
 
         .service-card:hover {
             border-color: var(--gold);
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
         }
 
-        .card-image {
+        .card-image-wrapper {
             width: 100%;
-            aspect-ratio: 1/1;
+            aspect-ratio: 16/10; /* Garante alinhamento total */
             overflow: hidden;
         }
 
-        .card-image img {
+        .card-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition-smooth);
         }
 
-        .service-card:hover .card-image img {
-            transform: scale(1.1) rotate(1deg);
+        .service-card:hover .card-image-wrapper img {
+            transform: scale(1.08);
         }
 
         .card-info {
-            padding: 40px 30px;
+            padding: 30px 25px;
             text-align: center;
         }
 
         .card-info h3 {
             color: var(--gold);
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 22px;
+            margin-bottom: 12px;
         }
 
         /* SEÇÃO EQUIPE (Os Consiglieres) */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -273,50 +262,61 @@
         .team-card {
             display: flex;
             align-items: center;
-            background: var(--dark-gray);
-            border: 1px solid #111;
+            background: var(--mid-gray);
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition-smooth);
+        }
+        
+        .team-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
         }
 
-        .team-photo {
-            width: 150px;
-            aspect-ratio: 1/1;
+        .team-photo-wrapper {
+            width: 130px;
+            aspect-ratio: 1/1; /* Quadrado */
             overflow: hidden;
         }
 
-        .team-photo img {
+        .team-photo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
         .team-details {
-            padding: 30px;
+            padding: 25px;
         }
 
         .team-details h3 {
             color: var(--gold);
-            font-size: 22px;
-            margin-bottom: 5px;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        
+        .team-details p {
+            font-size: 14px;
+            color: var(--light-gray);
         }
 
         /* SLIDER PREMIUM DO ESPAÇO */
-        .space-slider {
+        .space-slider-wrapper {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
-            border: 10px solid var(--mid-gray);
+            border: 8px solid var(--mid-gray);
         }
 
         .slides-container {
             display: flex;
             width: 400%; /* 4 Fotos */
-            transition: transform 1s ease-in-out;
+            transition: transform 0.8s ease-in-out;
         }
 
         .slide {
             width: 25%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 16/9; /* Proporção de cinema */
         }
 
         .slide img {
@@ -325,23 +325,24 @@
             object-fit: cover;
         }
 
-        /* SEÇÃO PROMOÇÃO (Parallax Avançado) */
+        /* SEÇÃO PROMOÇÃO (DINÂMICA) */
         #promocao {
-            background-image: url('https://images.unsplash.com/photo-1593702288056-ccbfebbc4b6b?q=80&w=1920&auto=format&fit=crop');
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
             position: relative;
             text-align: center;
-            transition: background-color 1s ease;
+            background-color: var(--dark-gray);
+            transition: background-color 0.8s ease;
         }
 
-        .promo-overlay {
+        /* Usando a foto fictícia da fachada como fundo estático suave também na promoção, para manter a consistência */
+        #promocao::before {
+            content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background-image: url('image_0.png');
+            background-position: center;
+            background-size: cover;
+            opacity: 0.1; /* Bem suave */
             z-index: 1;
-            transition: background 1s ease;
         }
 
         .promo-container {
@@ -350,28 +351,34 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 60px 40px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .promo-header-info {
+        .promo-status-label {
             font-family: var(--font-title);
             color: var(--white);
-            font-size: 22px;
+            font-size: 20px;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
         }
 
         .promo-title-dec {
             font-family: var(--font-title-dec);
             color: var(--gold);
-            font-size: 80px;
+            font-size: 60px;
             margin-bottom: 10px;
+            line-height: 1;
         }
 
         .timer-grid {
             display: flex;
-            gap: 20px;
-            margin-bottom: 50px;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         .timer-item {
@@ -380,80 +387,80 @@
             align-items: center;
             justify-content: center;
             background: rgba(0,0,0,0.5);
-            width: 100px;
-            height: 100px;
-            border: 1px solid var(--mid-gray);
+            width: 90px;
+            height: 90px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .timer-value {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             color: var(--gold);
         }
 
         .timer-label {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             color: var(--light-gray);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .promo-offer {
             font-family: var(--font-title);
-            font-size: 24px;
+            font-size: 22px;
             color: var(--white);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .promo-offer span {
             color: var(--gold);
-            font-size: 50px;
+            font-size: 45px;
             font-weight: 900;
+            display: block;
+            margin: 10px 0;
         }
 
         .old-price {
             text-decoration: line-through;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
-        /* ESTILO ATIVO NA QUARTA-FEIRA */
-        .is-wednesday {
-            background-image: none !important;
-            background-color: var(--black) !important;
+        /* ESTILO ATIVO NA QUARTA-FEIRA (MUDANÇA RADICAL P/ DIVINO) */
+        .is-wednesday .promo-container {
+            border-color: #00ff00 !important;
+            background: radial-gradient(circle, rgba(0, 100, 0, 0.4) 0%, rgba(10, 10, 10, 1) 100%) !important;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.15);
         }
 
-        .is-wednesday .promo-overlay {
-            background: radial-gradient(circle, rgba(197, 160, 89, 0.2) 0%, rgba(0, 0, 0, 1) 70%) !important;
-        }
-
-        .is-wednesday .promo-header-info {
-            color: var(--gold-light);
+        .is-wednesday .promo-status-label {
+            color: #4ade80;
             font-weight: 700;
         }
         
-        .is-wednesday .promo-title-dec {
-            color: var(--white);
-        }
-
-        .is-wednesday .promo-offer span {
-            color: var(--white);
-            text-shadow: 0 0 20px rgba(197, 160, 89, 1);
+        .is-wednesday .promo-title-dec, .is-wednesday .promo-offer span {
+            color: #4ade80;
+            text-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
         }
 
         footer {
-            background: #020202;
+            background: #050505;
             text-align: center;
-            padding: 30px;
-            color: #444;
-            font-size: 11px;
+            padding: 25px;
+            color: #333;
+            font-size: 10px;
             border-top: 1px solid #111;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 900px) {
-            header { flex-direction: column; padding: 15px; }
-            .hero-content h1 { font-size: 50px; }
+            header { flex-direction: column; padding: 10px; }
+            nav ul { gap: 15px; margin-top: 10px; }
+            .hero-content h1 { font-size: 45px; }
             .services-grid { grid-template-columns: 1fr; }
             .team-card { flex-direction: column; text-align: center; }
+            .promo-title-dec { font-size: 40px; }
+            .timer-item { width: 70px; height: 70px; }
+            .timer-value { font-size: 24px; }
         }
     </style>
 </head>
@@ -465,17 +472,17 @@
             <ul>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#equipe">Família</a></li>
-                <li><a href="#espaco">O Espaço</a></li>
+                <li><a href="#espaco">O Território</a></li>
                 <li><a href="#promocao">Oferta</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="parallax-hero">
+    <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <h1>Honra em Cada Corte</h1>
-            <p>Descubra a tradição absoluta em cuidados masculinos. Estilo imponente para homens de respeito.</p>
+            <h1>A Tradição Começa na Fachada</h1>
+            <p>Conheça o território absoluto dos cuidados masculinos premium. Estilo imponente e respeito em cada corte.</p>
             <a href="https://wa.me/5599999999999" class="btn-premium">Reservar Lugar</a>
         </div>
     </section>
@@ -483,34 +490,34 @@
     <section id="servicos" style="background-color: #050505;">
         <div class="section-title reveal">
             <h2>A Arte do Cuidado</h2>
-            <p>Técnicas clássicas executadas com precisão absoluta e equipamentos premium.</p>
+            <p>Técnicas clássicas executadas com precisão absoluta e equipamentos premium para homens de honra.</p>
         </div>
         <div class="services-grid">
             <div class="service-card reveal">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600&auto=format&fit=crop" alt="Corte">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600&auto=format&fit=crop" alt="Corte Supremo (Placeholder)">
                 </div>
                 <div class="card-info">
                     <h3>Corte Supremo</h3>
-                    <p>O corte perfeito para o seu estilo, com toalha quente e finalização artesanal.</p>
+                    <p>O corte perfeito para o seu estilo, finalizado com precisão artesanal.</p>
                 </div>
             </div>
             <div class="service-card reveal">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" alt="Barba">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" alt="Barba de Respeito (Placeholder)">
                 </div>
                 <div class="card-info">
                     <h3>Barba de Respeito</h3>
-                    <p>Alinhamento milimétrico, hidratação profunda e massagem com toalha quente.</p>
+                    <p>Alinhamento milimétrico, hidratação profunda e toalha quente.</p>
                 </div>
             </div>
             <div class="service-card reveal">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=600&auto=format&fit=crop" alt="Combo">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=600&auto=format&fit=crop" alt="O Capo (Combo) (Placeholder)">
                 </div>
                 <div class="card-info">
                     <h3>O Capo (Combo)</h3>
-                    <p>Corte, Barba e Sobrancelha. A experiência completa para sair impecável.</p>
+                    <p>A experiência completa: Corte, Barba e Sobrancelha para sair impecável.</p>
                 </div>
             </div>
         </div>
@@ -519,25 +526,25 @@
     <section id="equipe">
         <div class="section-title reveal">
             <h2>Nossa Família</h2>
-            <p>Os conselheiros responsáveis pelo seu estilo.</p>
+            <p>Os mestres conselheiros responsáveis pelo seu estilo impecável.</p>
         </div>
         <div class="team-grid">
             <div class="team-card reveal">
-                <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" alt="Barbeiro Vito">
+                <div class="team-photo-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Barbeiro Vito (Placeholder)">
                 </div>
                 <div class="team-details">
                     <h3>Vito</h3>
-                    <p>Mestre tesoureiro.</p>
+                    <p>Mestre tesoureiro clássico.</p>
                 </div>
             </div>
             <div class="team-card reveal">
-                <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?q=80&w=500&auto=format&fit=crop" alt="Barbeiro Michael">
+                <div class="team-photo-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?q=80&w=400&auto=format&fit=crop" alt="Barbeiro Michael (Placeholder)">
                 </div>
                 <div class="team-details">
                     <h3>Michael</h3>
-                    <p>Especialista do fade.</p>
+                    <p>Especialista do fade moderno.</p>
                 </div>
             </div>
         </div>
@@ -546,22 +553,21 @@
     <section id="espaco" style="background-color: #030303;">
         <div class="section-title reveal">
             <h2>O Nosso Território</h2>
-            <p>Cadeiras confortáveis, som ambiente de qualidade e cerveja gelada.</p>
+            <p>Cadeiras confortáveis, som ambiente de qualidade e cerveja gelada enquanto você aguarda.</p>
         </div>
-        <div class="space-slider reveal">
+        <div class="space-slider-wrapper reveal">
             <div class="slides-container" id="slides">
-                <div class="slide"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800" alt="Ambiente 1"></div>
-                <div class="slide"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800" alt="Equipamentos"></div>
-                <div class="slide"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800" alt="Cadeira"></div>
-                <div class="slide"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed6143?q=80&w=800" alt="Detalhe"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" alt="Ambiente 1"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800&auto=format&fit=crop" alt="Equipamentos 1"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop" alt="Cadeira 1"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed6143?q=80&w=800&auto=format&fit=crop" alt="Detalhe 1"></div>
             </div>
         </div>
     </section>
 
     <section id="promocao">
-        <div class="promo-overlay"></div>
         <div class="promo-container reveal">
-            <div class="promo-header-info" id="promo-status-label">A OFERTA ESTÁ CHEGANDO...</div>
+            <div class="promo-status-label" id="promo-status-label">A OFERTA ESTÁ CHEGANDO...</div>
             <h3 class="promo-title-dec" id="promo-title-dec">Corte Corleone</h3>
             
             <div class="timer-grid" id="timer-grid">
@@ -589,7 +595,7 @@
             reveals.forEach(reveal => {
                 var windowHeight = window.innerHeight;
                 var revealTop = reveal.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
+                if (revealTop < windowHeight - 80) {
                     reveal.classList.add('active');
                 }
             });
@@ -598,17 +604,17 @@
         // Executa a primeira verificação pra elementos já na tela
         window.dispatchEvent(new Event('scroll'));
 
-        // 2. LÓGICA DO SLIDER AUTOMÁTICO
+        // 2. LÓGICA DO SLIDER AUTOMÁTICO (ESPAÇO)
         let slideIndex = 0;
         const slides = document.getElementById('slides');
         function moveSlider() {
             slideIndex++;
-            if (slideIndex > 3) { slideIndex = 0; }
-            slides.style.transform = `translateX(-${slideIndex * 25}%)`;
-        }
-        setInterval(moveSlider, 4000); // Muda a cada 4 segundos
+            if (slideIndex > 3) { slideIndex = 0; } // Reinicia após a última foto
+            slides.style.transform = `translateX(-${slideIndex * 25}%)`; // Move proporcionalmente
+                    }
+        setInterval(moveSlider, 4500); // Muda a cada 4.5 segundos
 
-        // 3. LÓGICA AVANÇADA DA PROMOÇÃO DE QUARTA-FEIRA
+        // 3. LÓGICA AVANÇADA DA PROMOÇÃO DE QUARTA-FEIRA (Dinâmica)
         function verificarPromocao() {
             const promoSection = document.getElementById("promocao");
             const statusLabel = document.getElementById("promo-status-label");
@@ -621,12 +627,12 @@
             const diaDaSemana = hoje.getDay(); // 3 = Quarta-feira
 
             if (diaDaSemana === 3) {
-                // SE FOR QUARTA-FEIRA
+                // SE FOR QUARTA-FEIRA: Design Verde e Ativo
                 promoSection.classList.add("is-wednesday");
-                statusLabel.innerHTML = "🔥 OFERTA ATIVA HOJE";
-                                timerGrid.style.display = "none"; // Esconde o contador
+                statusLabel.innerHTML = "🔥 OFERTA ATIVA HOJE! 🔥";
+                timerGrid.style.display = "none"; // Esconde o contador
             } else {
-                // SE NÃO FOR QUARTA-FEIRA
+                // SE NÃO FOR QUARTA-FEIRA: Design Dourado e Contador Real
                 promoSection.classList.remove("is-wednesday");
                 statusLabel.innerHTML = "TEMPO RESTANTE PARA A OFERTA DO CHEFE";
                 timerGrid.style.display = "flex"; // Mostra o contador
@@ -637,28 +643,33 @@
                 
                 let proximaQuarta = new Date(hoje);
                 proximaQuarta.setDate(hoje.getDate() + diasParaQuarta);
-                proximaQuarta.setHours(0, 0, 0, 0); // Começa à meia-noite
+                proximaQuarta.setHours(0, 0, 0, 0); // Começa à meia-noite da quarta
 
-                // Atualiza o contador imediatamente
+                // Atualiza o contador imediatamente e a cada minuto
                 function atualizarContador() {
                     let agora = new Date().getTime();
                     let distancia = proximaQuarta.getTime() - agora;
 
+                    // Cálculos de tempo
                     let days = Math.floor(distancia / (1000 * 60 * 60 * 24));
                     let hours = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     let minutes = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
 
+                    // Formatação com zero à esquerda
                     diasSpan.innerText = days.toString().padStart(2, '0');
                     horasSpan.innerText = hours.toString().padStart(2, '0');
                     minSpan.innerText = minutes.toString().padStart(2, '0');
                 }
                 
-                atualizarContador(); // Chama uma vez pra carregar
+                atualizarContador(); // Chama uma vez pra carregar imediatamente
                 setInterval(atualizarContador, 1000 * 60); // Atualiza a cada minuto
             }
         }
 
+        // Executa a verificação ao carregar a página
         window.onload = verificarPromocao;
     </script>
 </body>
 </html>
+
+       
